@@ -68,6 +68,7 @@ void printInorder(node *root){
   	if(root==NULL){
   		return 0;
      }
+     cout<<" i am heigth function"<<endl;
 
      int ls=treeHeight(root->left);
      int rs=treeHeight(root->right);
@@ -79,13 +80,13 @@ void printInorder(node *root){
 
 
   //print level through recursive call
-  void Klevel(node *root,int k){
+  node *Klevel(node *root,int k){
   	if(root==NULL){
-  		return;
+  		return NULL;
   	}
   	if(k==1){
-  		cout<<root->data<<" ";
-  		return;
+  		
+  		return root ;
   	}
   	Klevel(root->left,k-1);
   	Klevel(root->right,k-1);
@@ -96,8 +97,8 @@ void printInorder(node *root){
     void allLevelPrint(node *root){
   	int h=treeHeight(root);
   	for(int i=1;i<=h;i++){
-  		Klevel(root,i);
-  		cout<<""<<endl;
+  		struct node *temp=Klevel(root,i);
+  		cout<<temp->data<<endl;
   	}
   }
 

@@ -48,8 +48,19 @@ void printInorder(node *root){
   		return;
   	}
   	q.push(root);
+  	q.push(NULL);
   	while(!q.empty()){
   		struct node *temp=q.front();
+
+  		if(temp==NULL){
+  			cout<<""<<endl;
+              q.pop();
+  			if(!q.empty()){
+  				q.push(NULL);
+  			   }
+  		}
+
+  		else{
   		cout<<temp->data<<" ";
   		q.pop();
 
@@ -57,9 +68,10 @@ void printInorder(node *root){
   			q.push(temp->left);
   		if(temp->right!=NULL)
   			q.push(temp->right);
-  		
+  		temp=q.front();
   	}
   }
+}
 
   // height of a tree
 
